@@ -55,3 +55,18 @@ function [e,u,y] = makeApp (T, X)
     end
     e = y - u;
 endfunction
+
+N = 5;
+[e,u,y] = makeApp(N^2, N);
+ee(1) = abs(max(e));
+for i = 2:3
+    N = 2*N;
+    X = N;
+    T = X^2;
+    [e,u,y] = makeApp(T, X);
+    ee(i) = abs(max(e));
+    printf("ee(%d)=%f,ee(%d)=%f, p = %f\n",i-1,ee(i-1),i,ee(i), abs(log2(ee(i-1)/ee(i))));
+end
+
+
+
