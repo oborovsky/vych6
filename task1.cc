@@ -145,11 +145,13 @@ int main(int argc, char const *argv[])
 	matrix tab;
 	const counter A = 5;
 	const counter B = 10;
-	counter T = N^2;
-    
+	counter T = pow(2,N);
+    dvec TT;
+    dvec XX;
 	for( counter i = 0; i < A; i++)
 	{
 		T = 2*T;
+		TT.push_back(T);
 		dvec e;
 
 		counter X = N;
@@ -157,12 +159,15 @@ int main(int argc, char const *argv[])
 		for( counter j = 0; j < B; j++)
 		{
 			X = 2*X;
+			if ( i == 0) XX.push_back(X);
 			double ee = makeApp(T, X);
 			e.push_back(ee);
 		}
 		tab.push_back(e);
 	}
-	os<<tab<<endl;
+	os<<tab<<endl<<endl;
+	os<<"T="<<TT<<endl;
+	os<<"X="<<XX<<endl;
 	// for (counter i = 0; i < e.size()-1; i++)
 	// {
 	// 	cout<<"e1="<< e[i]<<endl;
