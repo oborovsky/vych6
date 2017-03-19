@@ -66,8 +66,7 @@ for i = 2:2
     [e,u,y] = makeApp(T, X);
     ee(i) = abs(max(e));
     x = 0:1/X:1;
-    plot(x, y(T+1,:),'b' );
-    plot(x,u(T+1,:),'r');
+   
     printf("ee(%d)=%f,ee(%d)=%f, p = %f\n",i-1,ee(i-1),i,ee(i), abs(log2(ee(i-1)/ee(i))));
 end
 
